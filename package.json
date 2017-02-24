@@ -1,0 +1,22 @@
+{
+  "name": "allien-challenge",
+  "version": "1.0.0",
+  "description": "allien challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dielduarte/allien-challenge.git"
+  },
+  "author": "diel duarte",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dielduarte/allien-challenge/issues"
+  },
+  "homepage": "https://github.com/dielduarte/allien-challenge#readme",
+  "devDependencies": {
+    "ava": "^0.18.2"
+  }
+}

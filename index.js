@@ -1,19 +1,19 @@
 'use strict';
 
-var utils = require('./utils.js');
+const UTILS = require('./utils.js');
 
 function getAmountInCredits(quotation, alienNumber) {
   let alienNumberSplited = alienNumber.split(' ');
 
-  if(!utils.verifyIfNumbersExistInAllienSystem(alienNumberSplited)) {
+  if(!UTILS.verifyIfNumbersExistInAllienSystem(alienNumberSplited)) {
     return NaN;
   }
 
-  let romanSymbol = utils.convertAllienToRoman(alienNumberSplited);
+  let romanSymbol = UTILS.convertAllienToRoman(alienNumberSplited);
 
-  let decimalNumber = utils.convertRomanToDecimal(romanSymbol);
+  let decimalNumber = UTILS.convertRomanToDecimal(romanSymbol);
 
-  return utils.convertQuotationValue(quotation, decimalNumber);
+  return UTILS.convertQuotationValue(quotation, decimalNumber);
 }
 
 console.log(getAmountInCredits(1, 'isk isk'));
