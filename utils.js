@@ -1,19 +1,22 @@
 'use strict';
 
-const ALLIEN_NUMBERS = require('./allienNumbers.js');
-const ROMAN_NUMBERS = require('./romanNumbers.js');
+const ALLIEN_DICTIONARY = require('./dictionaries/allienDictionary.js');
+const ROMAN_DICTIONARY = require('./dictionaries/romanDictionary.js');
 
 module.exports = {
   verifyIfNumbersExistInAllienSystem: (numbers) => {
     let numbersExist = true;
 
-    numbers.map((number) => numbersExist = ALLIEN_NUMBERS.hasOwnProperty(number));
+    numbers.every((number) => {
+      numbersExist = ALLIEN_DICTIONARY.hasOwnProperty(number);
+      return numbersExist;
+    });
 
     return numbersExist;
   },
 
   convertAllienToRoman: (numbers) => {
-    return numbers.map((key) => ALLIEN_NUMBERS[key])
+    return numbers.map((key) => ALLIEN_DICTIONARY[key])
                   .join()
                   .replace(',', '');
   },
@@ -21,9 +24,9 @@ module.exports = {
 
       let decimalNumber = 0;
 
-      Object.keys(ROMAN_NUMBERS).map((key) => {
+      Object.keys(ROMAN_DICTIONARY).map((key) => {
         while (romanSymbol.indexOf(key) === 0) {
-          decimalNumber += ROMAN_NUMBERS[key];
+          decimalNumber += ROMAN_DICTIONARY[key];
           romanSymbol = romanSymbol.replace(key, '');
         }
       });
